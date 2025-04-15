@@ -170,17 +170,18 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //find by ID
-        $product = Product::findOrFail($id);
+{
+    //find by ID
+    $product = Product::findOrFail($id);
 
-        //remove image
-        Storage::disk('local')->delete('public/products/' . basename($product->image));
+    //remove image using raw filename
+    Storage::disk('local')->delete('public/products/' . $product->raw_image);
 
-        //delete
-        $product->delete();
+    //delete
+    $product->delete();
 
-        //redirect
-        return back();
-    }
+    //redirect back
+    return back();
+}
+
 }

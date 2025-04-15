@@ -1,4 +1,5 @@
 import React from 'react'
+import { router } from '@inertiajs/react'
 import DashboardLayout from '@/Layouts/DashboardLayout'
 import { Head, usePage } from '@inertiajs/react'
 import { IconCirclePlus, IconDatabaseOff, IconEdit, IconTrash, IconSearch } from '@tabler/icons-react'
@@ -46,6 +47,7 @@ export default function Index({ products }) {
                                         router.get(route('products.index'), { search: e.target.value });
                                     }
                                 }}
+                                
                             />
                         </div>
                     </div>
@@ -126,15 +128,17 @@ export default function Index({ products }) {
                                                         <IconEdit size={18} />
                                                     </a>
                                                     <button
-                                                        onClick={() => {
-                                                            if (confirm('Apakah Anda yakin ingin menghapus produk ini?')) {
-                                                                router.delete(route('products.destroy', product.id));
-                                                            }
-                                                        }}
-                                                        className="text-rose-600 hover:text-rose-900 dark:text-rose-400 dark:hover:text-rose-300 p-2 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-900/30"
-                                                    >
-                                                        <IconTrash size={18} />
-                                                    </button>
+    onClick={() => {
+        if (confirm('Apakah Anda yakin ingin menghapus produk ini?')) {
+            router.delete(route('products.destroy', product.id));
+        }
+    }}
+
+    className="text-rose-600 hover:text-rose-900 dark:text-rose-400 dark:hover:text-rose-300 p-2 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-900/30"
+>
+    <IconTrash size={18} />
+</button>
+
                                                 </div>
                                             </td>
                                         </tr>

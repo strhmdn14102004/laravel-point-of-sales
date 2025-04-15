@@ -32,8 +32,13 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::resource('/users', UserController::class)->except('show');
 
     Route::resource('categories', CategoryController::class);
-    Route::resource('products', ProductController::class);
+    Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+    // products route
+Route::resource('products', ProductController::class)->except('show');
+Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+   
     Route::resource('customers', CustomerController::class);
+    Route::delete('/customers/{id}', [CustomerController::class, 'destroy'])->name('customers.destroy');
     //route transaction
     Route::get('/transactions', [\App\Http\Controllers\Apps\TransactionController::class, 'index'])->name('transactions.index');
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { router } from '@inertiajs/react';
 import DashboardLayout from '@/Layouts/DashboardLayout'
 import { Head, usePage } from '@inertiajs/react'
 import { IconCirclePlus, IconDatabaseOff, IconEdit, IconTrash, IconSearch, IconUser, IconPhone, IconMapPin } from '@tabler/icons-react'
@@ -99,7 +100,7 @@ export default function Index({ customers }) {
                                                         <IconEdit size={18} />
                                                     </a>
                                                     <button
-                                                        onClick={() => {
+                                                          onClick={() => {
                                                             if (confirm('Apakah Anda yakin ingin menghapus pelanggan ini?')) {
                                                                 router.delete(route('customers.destroy', customer.id));
                                                             }

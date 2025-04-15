@@ -1,4 +1,5 @@
 import React from 'react'
+import { router } from '@inertiajs/react';
 import DashboardLayout from '@/Layouts/DashboardLayout'
 import { Head, usePage } from '@inertiajs/react'
 import { IconCirclePlus, IconDatabaseOff, IconPencil, IconTrash, IconSearch, IconPhoto } from '@tabler/icons-react'
@@ -34,9 +35,10 @@ export default function Index({ categories }) {
                                 placeholder="Cari kategori..."
                                 onKeyPress={(e) => {
                                     if (e.key === 'Enter') {
-                                        router.get(route('categories.index'), { search: e.target.value });
+                                        e.preventDefault();
+                                        router.get(route('categories.index'), { search: e.target.value }, { preserveState: true, replace: true });
                                     }
-                                }}
+                                }}                                
                             />
                         </div>
                     </div>
@@ -94,11 +96,11 @@ export default function Index({ categories }) {
                                                         <IconPencil size={18} />
                                                     </a>
                                                     <button
-                                                        onClick={() => {
-                                                            if (confirm('Apakah Anda yakin ingin menghapus kategori ini?')) {
-                                                                router.delete(route('categories.destroy', category.id));
-                                                            }
-                                                        }}
+                                                      onClick={() => {
+                                                        if (confirm('Apakah Anda yakin ingin menghapus kategori ini?')) {
+                                                            router.delete(route('categories.destroy', category.id));
+                                                        }
+                                                    }}                                                    
                                                         className="text-rose-600 hover:text-rose-900 dark:text-rose-400 dark:hover:text-rose-300 p-2 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-900/30"
                                                     >
                                                         <IconTrash size={18} />
