@@ -14,11 +14,15 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
+    
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
+    public function boot()
     {
-        //
+        if (app()->environment('production')) {
+            error_reporting(E_ALL & ~E_WARNING);
+        }
     }
+    
 }
