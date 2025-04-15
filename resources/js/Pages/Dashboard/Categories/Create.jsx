@@ -129,7 +129,7 @@ export default function Create() {
                                     type="text"
                                     name="name"
                                     id="name"
-                                    className="block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                                    className="block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-200"
                                     placeholder="Contoh: Elektronik"
                                     value={data.name}
                                     onChange={(e) => setData('name', e.target.value)}
@@ -150,7 +150,7 @@ export default function Create() {
                                     id="description"
                                     name="description"
                                     rows={4}
-                                    className="block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                                    className="block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-200"
                                     placeholder="Deskripsi singkat tentang kategori ini"
                                     value={data.description}
                                     onChange={(e) => setData('description', e.target.value)}

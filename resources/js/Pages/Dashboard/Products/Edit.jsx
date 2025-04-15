@@ -145,7 +145,7 @@ export default function Edit({ categories, product }) {
                             </label>
                             <div className="relative">
                                 <select
-                                    className="block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 dark:text-white appearance-none"
+                                    className="block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-200 appearance-none"
                                     value={selectedCategory?.id || ''}
                                     onChange={(e) => {
                                         const category = categories.find(c => c.id === parseInt(e.target.value))
@@ -178,7 +178,7 @@ export default function Edit({ categories, product }) {
                                     </div>
                                     <input
                                         type="text"
-                                        className="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                                        className="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-200"
                                         placeholder="Masukkan barcode"
                                         value={data.barcode}
                                         onChange={(e) => setData('barcode', e.target.value)}
@@ -195,7 +195,7 @@ export default function Edit({ categories, product }) {
                                 </label>
                                 <input
                                     type="text"
-                                    className="block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                                    className="block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-200"
                                     placeholder="Nama produk"
                                     value={data.title}
                                     onChange={(e) => setData('title', e.target.value)}
@@ -213,7 +213,7 @@ export default function Edit({ categories, product }) {
                             </label>
                             <textarea
                                 rows={4}
-                                className="block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                                className="block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-200"
                                 placeholder="Deskripsi lengkap produk"
                                 value={data.description}
                                 onChange={(e) => setData('description', e.target.value)}
@@ -235,7 +235,7 @@ export default function Edit({ categories, product }) {
                                     </div>
                                     <input
                                         type="number"
-                                        className="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                                        className="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-200"
                                         placeholder="0"
                                         value={data.buy_price}
                                         onChange={(e) => setData('buy_price', e.target.value)}
@@ -256,7 +256,7 @@ export default function Edit({ categories, product }) {
                                     </div>
                                     <input
                                         type="number"
-                                        className="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                                        className="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-200"
                                         placeholder="0"
                                         value={data.sell_price}
                                         onChange={(e) => setData('sell_price', e.target.value)}
@@ -277,7 +277,7 @@ export default function Edit({ categories, product }) {
                                     </div>
                                     <input
                                         type="number"
-                                        className="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
+                                        className="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-200"
                                         placeholder="0"
                                         value={data.stock}
                                         onChange={(e) => setData('stock', e.target.value)}
