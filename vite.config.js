@@ -1,9 +1,9 @@
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
 import react from '@vitejs/plugin-react';
+import laravel from 'laravel-vite-plugin';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-    base: '/', // sangat penting agar tidak hardcoded http://
+    base: '/', 
     plugins: [
         laravel({
             input: 'resources/js/app.jsx',
