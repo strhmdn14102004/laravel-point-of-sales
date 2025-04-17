@@ -10,19 +10,34 @@ class Category extends Model
 {
     use HasFactory;
     
+    /**
+     * fillable
+     *
+     * @var array
+     */
     protected $fillable = [
-        'image', 'name', 'description', 'image_url'
+        'image', 'name', 'description'
     ];
 
+    /**
+     * products
+     *
+     * @return void
+     */
     public function products()
     {
         return $this->hasMany(Product::class);
     }
 
+    /**
+     * image
+     *
+     * @return Attribute
+     */
     protected function image(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => $this->image_url, // Kembalikan URL lengkap dari Google Drive
+            get: fn ($value) => asset('/storage/category/' . $value),
         );
     }
 }
