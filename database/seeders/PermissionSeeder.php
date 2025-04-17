@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 
@@ -13,46 +12,37 @@ class PermissionSeeder extends Seeder
      */
     public function run(): void
     {
-        // dashboard permissions
-        Permission::create(['name' => 'dashboard-access']);
+        $permissions = [
+            // dashboard
+            'dashboard-access',
 
-        // users permissions
-        Permission::create(['name' => 'users-access']);
-        Permission::create(['name' => 'users-create']);
-        Permission::create(['name' => 'users-update']);
-        Permission::create(['name' => 'users-delete']);
+            // users
+            'users-access', 'users-create', 'users-update', 'users-delete',
 
-        // roles permissions
-        Permission::create(['name' => 'roles-access']);
-        Permission::create(['name' => 'roles-create']);
-        Permission::create(['name' => 'roles-update']);
-        Permission::create(['name' => 'roles-delete']);
+            // roles
+            'roles-access', 'roles-create', 'roles-update', 'roles-delete',
 
-        // permissions permissions
-        Permission::create(['name' => 'permissions-access']);
-        Permission::create(['name' => 'permissions-create']);
-        Permission::create(['name' => 'permissions-update']);
-        Permission::create(['name' => 'permissions-delete']);
+            // permissions
+            'permissions-access', 'permissions-create', 'permissions-update', 'permissions-delete',
 
-        //permission categories
-        Permission::create(['name' => 'categories-access']);
-        Permission::create(['name' => 'categories-create']);
-        Permission::create(['name' => 'categories-edit']);
-        Permission::create(['name' => 'categories-delete']);
+            // categories
+            'categories-access', 'categories-create', 'categories-edit', 'categories-delete',
 
-        //permission products
-        Permission::create(['name' => 'products-access']);
-        Permission::create(['name' => 'products-create']);
-        Permission::create(['name' => 'products-edit']);
-        Permission::create(['name' => 'products-delete']);
+            // products
+            'products-access', 'products-create', 'products-edit', 'products-delete',
 
-        //permission customers
-        Permission::create(['name' => 'customers-access']);
-        Permission::create(['name' => 'customers-create']);
-        Permission::create(['name' => 'customers-edit']);
-        Permission::create(['name' => 'customers-delete']);
+            // customers
+            'customers-access', 'customers-create', 'customers-edit', 'customers-delete',
 
-        //permission transactions
-        Permission::create(['name' => 'transactions-access']);
+            // transactions
+            'transactions-access',
+        ];
+
+        foreach ($permissions as $permission) {
+            Permission::firstOrCreate([
+                'name' => $permission,
+                'guard_name' => 'web', // default guard, kamu bisa sesuaikan kalau pakai api atau lainnya
+            ]);
+        }
     }
 }
